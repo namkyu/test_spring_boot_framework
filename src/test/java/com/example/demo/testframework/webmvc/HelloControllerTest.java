@@ -1,6 +1,5 @@
 package com.example.demo.testframework.webmvc;
 
-import com.example.demo.controller.HelloController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -28,6 +26,13 @@ public class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;
+
+    @Test
+    public void test단순하게() {
+        HelloController helloController = new HelloController();
+        String result = helloController.hello("nklee");
+        assertThat("Hello, nklee", is(result));
+    }
 
     @Test
     public void hello() throws Exception {
