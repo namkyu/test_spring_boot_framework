@@ -12,12 +12,11 @@ import org.springframework.stereotype.Service;
  * @Description :
  */
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
+public class EmployeeServiceImpl {
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Override
     public Employee getEmployeeByName(String name) {
         return employeeRepository.findByName(name);
     }

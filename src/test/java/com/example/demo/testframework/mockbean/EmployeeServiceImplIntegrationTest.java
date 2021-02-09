@@ -28,14 +28,15 @@ public class EmployeeServiceImplIntegrationTest {
     static class EmployeeServiceImplTestContextConfiguration {
 
         @Bean
-        public EmployeeService employeeService() {
+        public EmployeeServiceImpl employeeService() {
             return new EmployeeServiceImpl();
         }
     }
 
     @Autowired
-    private EmployeeService employeeService;
+    private EmployeeServiceImpl employeeService;
 
+    // spring context에 같은 타입의 bean이 존재하면 mock 빈으로 교체한다.
     @MockBean
     private EmployeeRepository employeeRepository;
 
